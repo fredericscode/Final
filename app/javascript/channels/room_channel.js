@@ -10,6 +10,8 @@ const roomSubscriber = consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
+      
+    var connectionCount = 0;
     
     if (data['step'] === 'receiving the call'){
 
