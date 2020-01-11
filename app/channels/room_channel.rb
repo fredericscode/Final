@@ -71,7 +71,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def create_session
-    opentok.create_session :media_mode => :routed
+    opentok.create_session media_mode: "routed"
   end
 
   def create_token(session_id)
