@@ -324,6 +324,28 @@ body {
 }//==================== Modal ============================
 
 
+/*================================= MEDIA QUERIES ==============================*/
+
+@media (max-width: 800px) {
+
+  .navbar-nav .state-btn {
+     margin: 5px 0px;
+  }
+
+  .jumbotron {
+    text-align: center;
+    h1 {
+      font-size: 28px;
+      width: 100%;
+    }
+    p {
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+  
+
+}
 
 
 
