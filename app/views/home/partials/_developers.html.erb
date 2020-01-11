@@ -1,0 +1,16 @@
+<section class="developers text-center" id="js-developers">
+    <h2 class=title>No appointment needed. Just chat!</h2>
+    <div class="container">
+        <div class="row my-5">
+            
+            <% @users.each do |user|  %>
+                
+                <div class="col-md-3 col-xs-6">
+                    <%= render 'home/partials/user-card', user: user %>
+                </div>
+                
+            <% end %>
+            
+        </div>
+    </div>
+</section>

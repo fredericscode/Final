@@ -1,0 +1,25 @@
+<div class="dev-card p-3 my-3 text-center">
+    <% if user.avatar.attached? %>
+        <%= image_tag user.avatar %>
+    <% else %>
+        <img src="assets/avatar5.jpeg" alt=""> 
+    <% end %>
+    
+    <h6 class="dev-name text-white">
+        <%= user.name %>
+        <span class="appearance <%= user.state %>" id="js-appearance<%= user.id %>">
+            <i class="fas fa-circle"></i>
+        </span>
+    </h6>
+    <div class="dev-icons">
+        
+        <%= link_to user.github_link, class:'github-icon m-2', title: "Github page", data: {toggle: "tooltip", placement: "top"} do %>
+          <i class="fab fa-github-square"></i>
+        <% end %>
+      
+        <%= link_to '', class:"camera-icon m-2 #{user.state}", id:"js-camera-icon#{user.id}", title: "Start a video call with #{user.name}", data: {id: user.id, name: user.name, toggle: "tooltip", placement: "top"}, remote: true  do %>
+          <i class="fas fa-video"></i>
+        <% end %>
+        
+    </div>
+</div>
