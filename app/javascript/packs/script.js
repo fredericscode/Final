@@ -1,3 +1,5 @@
+import roomSubscriber from '../channels/room_channel'
+
 document.addEventListener('DOMContentLoaded', (event) => {
 
   /* Avatar upload functionality for user registration */
@@ -52,9 +54,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
   
   
-  
-  
-  
+  var cameraIcons = document.getElementsByClassName('camera-icon');
+    for (let item of cameraIcons) {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        var recipient_id = item.getAttribute("data-id");
+        var recipient_name = item.getAttribute("data-name");
+        console.log(recipient_id);
+        console.log(recipient_name);
+        var recipient_name_modal = document.getElementById('recipient_name_modal');
+        recipient_name_modal.innerHTML = recipient_name;
+        $('#sender-notif-modal').modal('show');
+        
+        roomSubscriber.call(recipient_id);
+      })
+    }
+
+    // Call the answer method when the answer_btn is clicked.
+    const answerBtn = document.getElementById("answer-call");
+    answerBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      var session_id = document.getElementById("session_id").innerHTML;
+      var sender_id = document.getElementById('sender_id').innerHTML;
+      console.log(session_id);
+      console.log("answer btn clicked");
+      $('#receiver-notif-modal').modal('hide');
+      roomSubscriber.answer(session_id, sender_id);
+    });
+
   
   
   
